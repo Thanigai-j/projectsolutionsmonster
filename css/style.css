@@ -144,19 +144,40 @@ body.light-mode .video-bg:before {
 
 .app {
   background-color: var(--theme-bg-color);
-  max-width: 1250px;
-  max-height: 860px;
-  height: 90vh;
+  max-width: 1250px; /* Limit for large screens */
+  max-height: 860px; /* Limit for large screens */
+  height: 90vh; /* Adjust height based on viewport */
   display: flex;
   flex-direction: column;
   overflow: hidden;
   position: relative;
-  width: 100%;
+  width: 100%; /* Full width for smaller screens */
   border-radius: 14px;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   font-size: 15px;
   font-weight: 500;
+  margin: auto; /* Center the app on the screen */
+}
+
+/* Adjust for medium-sized screens */
+@media (max-width: 1024px) {
+  .app {
+    max-width: 90%; /* Scale down width for tablets */
+    max-height: 80vh; /* Reduce height for tablets */
+    font-size: 14px; /* Adjust font size */
+  }
+}
+
+/* Adjust for small screens (mobile) */
+@media (max-width: 768px) {
+  .app {
+    max-width: 95%; /* Fit within small screens */
+    max-height: none; /* Remove fixed max-height */
+    height: auto; /* Allow natural height for content */
+    font-size: 13px; /* Smaller font size for readability */
+    border-radius: 8px; /* Smaller border radius for compact look */
+  }
 }
 
 .header {
