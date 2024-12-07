@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Solution's Monster Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet'
+    href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <!-- Form Mixin-->
+  <!-- Input Mixin-->
+  <!-- Button Mixin-->
+  <!-- Pen Title-->
+  <div class="video-bg">
+    <video width="320" height="240" autoplay loop muted>
+      <source src="./images/login.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="pen-title">
+    <h1>Hi Members</h1>
+  </div>
+  <!-- Form Module-->
+  <div class="module form-module">
+    <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+      <div class="tooltip">Register</div>
+    </div>
+    <div class="form">
+      <img src="images/Solution's Monster.png">
+      <form id="logf">
+        <input id="usrname" type="text" placeholder="Username" />
+        <input id="usrpass" type="password" placeholder="Password" />
+      </form>
+      <button id="log">Login</button>
+    </div>
+    <div class="form">
+      <h2>Create an account</h2>
+      <form id="regf">
+        <input id="usr" type="text" placeholder="Username" />
+        <input id="pas" type="password" placeholder="Password" />
+        <input id="mail" type="email" placeholder="Email Address" />
+        <input id="phonenum" type="tel" placeholder="Phone Number" />
+      </form>
+      <button id="reg">Register</button>
+    </div>
+    <div class="cta"><a href="http://andytran.me">Forgot your password?</a></div>
+  </div>
+  <!-- partial -->
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='https://codepen.io/andytran/pen/vLmRVp.js'></script>
+  <script src="scripts/logscript.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    import { getDatabase, ref, get, set, child, update, remove } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAJJFkGJ5w2hvnIDgK06JvSAXC_eHK8mHg",
+      authDomain: "solution-monster-14a3c.firebaseapp.com",
+      projectId: "solution-monster-14a3c",
+      storageBucket: "solution-monster-14a3c.appspot.com",
+      messagingSenderId: "971919074422",
+      appId: "1:971919074422:web:aa5be0d20dc42355642b57"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase();
+
+    let usrname = document.getElementById("usrname");
+    let usrpass = document.getElementById("usrpass");
+
+    let name = document.getElementById("usr");
+    let password = document.getElementById("pas");
+    let email = document.getElementById("mail");
+    let phone = document.getElementById("phonenum");
+
+    const register = document.querySelector("#reg");
+    register.addEventListener("click", () => {
+      set(ref(db, "TheUsers/" + name.value), {
+        phoneNum: phone.value,
+        passWord: password.value,
+        eMail: email.value
+      }).then(() => {
+        const remove = document.querySelector("#regf");
+        remove.reset();
+        alert("Registered successfully!");
+        const homelink = "./index.html";
+        window.open(homelink, "_top");
+      }).catch((error) => {
+        alert("Unsuccess" + error);
+      })
+    })
+
+    let login = document.querySelector("#log");
+    login.addEventListener("click", () => {
+
+      const dbref = ref(db);
+      get(child(dbref, "TheUsers/" + usrname.value)).then((snapshot) => {
+        if (snapshot.exists()) {
+          if (usrpass.value == snapshot.val().passWord) {
+            alert("login succes");
+            const homelink = "./index.html";
+            window.open(homelink, "_self");
+
+          } else {
+            alert("password mismatch")
+          }
+          //console.log(typeof(snapshot.val().passWord));
+          //console.log(usrpass.value)
+          // console.log(typeof(usrpass.value))
+        } else {
+          alert("No UserName Found");
+        }
+      }).catch((error) => {
+        alert("Unsuccess, error :" + error);
+      })
+    })
+
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+</body>
+
+</html>
+
+
+
+<!--wireless session and transport protocal-->

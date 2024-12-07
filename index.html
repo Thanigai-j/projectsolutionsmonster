@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Solution's Monster</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script src= "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="video-bg">
+ <video width="320" height="240" autoplay loop muted>
+  <source src="./images/ux9.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+<div class="dark-light">
+    <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" /></svg>
+   </div>
+<div class="app">
+ <div class="header">
+  <div >
+    <div class="time" id="time"></div>
+    <script>
+      setInterval(()=>{
+        const time = document.querySelector(".time");
+        let date = new Date();
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let seconds = date.getSeconds();
+        let day_night = "AM";
+        if(hours > 12){
+          day_night = "PM";
+          hours = hours - 12;
+        }
+        if(seconds < 10){
+          seconds = "0" + seconds;
+        }
+        if(minutes < 10){
+          minutes = "0" + minutes;
+        }
+        if(hours < 10){
+          hours = "0" + hours;
+        }
+        time.textContent = hours + ":" + minutes + ":" + seconds + " "+ day_night;
+      });
+   </script>
+  </div>
+  <div class="header-menu">
+   <a class="menu-link is-active" href="#desktop">Apps</a>
+   <a class="menu-link" href="#">FAQ</a>
+   <a class="menu-link" href="#tools">Tools</a>
+   <a class="menu-link" href="#fdb">Feedback</a>
+  </div>
+  <div class="search-bar">
+   <input type="text" placeholder="Search More">
+  </div>
+  <div class="header-profile">
+    <svg class="svg-circleplus" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="45" fill="none" stroke-width="7.5"></circle>
+      <line x1="32.5" y1="50" x2="67.5" y2="50" stroke-width="5"></line>
+      <line x1="50" y1="32.5" x2="50" y2="67.5" stroke-width="5"></line>
+    </svg>
+   <div class="notification">
+    <span class="notification-number">3</span>
+    <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
+     <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" />
+    </svg>
+   </div>
+   <svg viewBox="0 0 512 512" fill="currentColor">
+    <path d="M448.773 235.551A135.893 135.893 0 00451 211c0-74.443-60.557-135-135-135-47.52 0-91.567 25.313-115.766 65.537-32.666-10.59-66.182-6.049-93.794 12.979-27.612 19.013-44.092 49.116-45.425 82.031C24.716 253.788 0 290.497 0 331c0 7.031 1.703 13.887 3.006 20.537l.015.015C12.719 400.492 56.034 436 106 436h300c57.891 0 106-47.109 106-105 0-40.942-25.053-77.798-63.227-95.449z" />
+   </svg>
+   <img class="profile-img" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+  </div>
+ </div>
+ <div class="wrapper">
+  <div class="left-side">
+   <div class="side-wrapper">
+    <div class="side-title">Apps</div>
+    <div class="side-menu">
+     <a href="#desktop">
+      <svg viewBox="0 0 512 512">
+       <g xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+        <path d="M0 0h128v128H0zm0 0M192 0h128v128H192zm0 0M384 0h128v128H384zm0 0M0 192h128v128H0zm0 0" data-original="#bfc9d1" />
+       </g>
+       <path xmlns="http://www.w3.org/2000/svg" d="M192 192h128v128H192zm0 0" fill="currentColor" data-original="#82b1ff" />
+       <path xmlns="http://www.w3.org/2000/svg" d="M384 192h128v128H384zm0 0M0 384h128v128H0zm0 0M192 384h128v128H192zm0 0M384 384h128v128H384zm0 0" fill="currentColor" data-original="#bfc9d1" />
+      </svg>
+      All Apps
+     </a>
+     <a href="#">
+      <svg viewBox="0 0 488.932 488.932" fill="currentColor">
+       <path d="M243.158 61.361v-57.6c0-3.2 4-4.9 6.7-2.9l118.4 87c2 1.5 2 4.4 0 5.9l-118.4 87c-2.7 2-6.7.2-6.7-2.9v-57.5c-87.8 1.4-158.1 76-152.1 165.4 5.1 76.8 67.7 139.1 144.5 144 81.4 5.2 150.6-53 163-129.9 2.3-14.3 14.7-24.7 29.2-24.7 17.9 0 31.8 15.9 29 33.5-17.4 109.7-118.5 192-235.7 178.9-98-11-176.7-89.4-187.8-187.4-14.7-128.2 84.9-237.4 209.9-238.8z" />
+      </svg>
+      Updates
+      <span class="notification-number updates">3</span>
+     </a>
+    </div>
+   </div>
+   <div class="side-wrapper">
+    <div class="side-title">Tools</div>
+    <div class="side-menu">
+     <a href="#gbtomb">
+      GB to MB
+     </a>
+     <a href="#qrcode">
+      QR Code Generator
+     </a>
+     <a href="#pwdgen">
+      Password Generator
+     </a>
+     <a href="#mper">
+      Mark Percentage Calc
+     </a>
+     <a href="#ytd">
+      Youtube Downloader
+     </a>
+    </div>
+   </div>
+   <div class="side-wrapper">
+    <div class="side-title">Reference</div>
+    <div class="side-menu">
+      <a href="https://www.ilovepdf.com/word_to_pdf" target="_blank">
+      Word to PDF
+     </a>
+     <a href="https://imageresizer.com/image-compressor" target="_blank">
+      Photo Compresser
+     </a>
+     <a href="https://imageresizer.com" target="_blank">
+      Image Resizer
+     </a>
+     <a href="https://slidesgo.com" target="_blank">
+      PowerPoint Online
+     </a>
+    </div>
+   </div>
+   <div class="side-wrapper">
+    <div class="side-title">Fonts</div>
+    <div class="side-menu">
+     <a href="#">
+      Manage Fonts
+     </a>
+    </div>
+   </div>
+  </div>
+  <div class="main-container">
+   <div class="main-header">
+    <a class="menu-link-main" href="#desktop">All Apps</a>
+    <div class="header-menu">
+     <a href="#desktop"class="main-header-link is-active" href="#">Desktop</a>
+     <a href="#androidapps"class="main-header-link" href="#">Mobile</a>
+    </div>
+   </div>
+   <div  class="content-wrapper">
+    <div class="content-wrapper-header">
+     <div class="content-wrapper-context">
+      <h3 class="img-content">
+      Solution's Monster
+      </h3>
+      <div class="content-text">Fullfil your technical thoughts Today.<br> Download your favorite software. <br> Solutions for many of errors.</div>
+      <button class="content-button" onclick="login()">Login</button>
+     </div>
+     <img class="content-wrapper-img" src="images/logo.png" alt="">
+    </div>
+    <div class="content-section">
+     <div id="desktop" class="content-section-title">Apps</div>
+     <ul>
+      <li class="adobe-product">
+       <div class="products">
+        <svg viewBox="0 0 52 52" style="border:1px solid #3291b8">
+          <g xmlns="http://www.w3.org/2000/svg">
+           <path d="M40.824 52H11.176C5.003 52 0 46.997 0 40.824V11.176C0 5.003 5.003 0 11.176 0h29.649C46.997 0 52 5.003 52 11.176v29.649C52 46.997 46.997 52 40.824 52z" fill="#061e26" data-original="#393687" />
+           <path d="M12.16 39H9.28V11h9.64c2.613 0 4.553.813 5.82 2.44 1.266 1.626 1.9 3.76 1.9 6.399 0 .934-.027 1.74-.08 2.42-.054.681-.22 1.534-.5 2.561-.28 1.026-.66 1.866-1.14 2.52-.48.654-1.213 1.227-2.2 1.72-.987.494-2.16.74-3.52.74h-7.04V39zm0-12h6.68c.96 0 1.773-.187 2.44-.56.666-.374 1.153-.773 1.46-1.2.306-.427.546-1.04.72-1.84.173-.801.267-1.4.28-1.801.013-.399.02-.973.02-1.72 0-4.053-1.694-6.08-5.08-6.08h-6.52V27zM29.48 33.92l2.8-.12c.106.987.6 1.754 1.48 2.3.88.547 1.893.82 3.04.82s2.14-.26 2.98-.78c.84-.52 1.26-1.266 1.26-2.239s-.36-1.747-1.08-2.32c-.72-.573-1.6-1.026-2.64-1.36-1.04-.333-2.086-.686-3.14-1.06a7.36 7.36 0 01-2.78-1.76c-.987-.934-1.48-2.073-1.48-3.42s.54-2.601 1.62-3.761 2.833-1.739 5.26-1.739c.854 0 1.653.1 2.4.3.746.2 1.28.394 1.6.58l.48.279-.92 2.521c-.854-.666-1.974-1-3.36-1-1.387 0-2.42.26-3.1.78-.68.52-1.02 1.18-1.02 1.979 0 .88.426 1.574 1.28 2.08.853.507 1.813.934 2.88 1.28 1.066.347 2.126.733 3.18 1.16 1.053.427 1.946 1.094 2.68 2s1.1 2.106 1.1 3.6c0 1.494-.6 2.794-1.8 3.9-1.2 1.106-2.954 1.66-5.26 1.66-2.307 0-4.114-.547-5.42-1.64-1.307-1.093-1.987-2.44-2.04-4.04z" fill="#c1dbe6" data-original="#89d3ff" />
+          </g>
+         </svg>
+        Photoshop
+       </div>
+       <span class="status">
+        <span class="status-circle green"></span>
+        Win 7/8/10</span>
+        <div class="button-wrapper">
+          <a href="https://adobe-photoshop.en.uptodown.com/windows/download"> <button class="content-button status-button">Download</button></a>
+          <div class="pop-up">
+           <div class="pop-up__title">Open
+            <svg class="close" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+             <circle cx="12" cy="12" r="10" />
+             <path d="M15 9l-6 6M9 9l6 6" />
+            </svg>
+           </div>
+           <div class="pop-up__subtitle">Adjust your selections for advanced options as desired before continuing. <a href="#">Learn more</a></div>
+           <div class="checkbox-wrapper">
+            <input type="checkbox" id="check1" class="checkbox">
+            <label for="check1">I agree Terms</label>
+           </div>
+           <div class="checkbox-wrapper">
+            <input type="checkbox" id="check2" class="checkbox">
+            <label for="check2">Condiions</label>
+           </div>
+           <div class="content-button-wrapper">
+            <button class="content-button status-button open close">Cancel</button>
+            <button id="h" class="content-button status-button">Download</button>
+           </div>
+          </div>
+         </div>
+      </li>
+      <li class="adobe-product">
+       <div class="products">
+        <img style="height: 28px;; width: 28px; margin-right: 0.8rem;" src="https://neveragain.allstatics.com/2019/assets/icon/logo/filmora-square.svg">
+        Flimora
+       </div>
+       <span class="status">
+        <span class="status-circle"></span>
+        Win 7/8/10</span>
+       <div class="button-wrapper">
+        <a href="https://filmora.wondershare.com/download-guidance.html?pro=filmora&download_url=https%3A%2F%2Fdownload.wondershare.com%2Ffilmora_full846.exe
+        "> <button class="content-button status-button">Download</button></a>
+        <div class="pop-up">
+         <div class="pop-up__title">Open
+          <svg class="close" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+           <circle cx="12" cy="12" r="10" />
+           <path d="M15 9l-6 6M9 9l6 6" />
+          </svg>
+         </div>
+         <div class="pop-up__subtitle">Adjust your selections for advanced options as desired before continuing. <a href="#">Learn more</a></div>
+         <div class="checkbox-wrapper">
+          <input type="checkbox" id="check1" class="checkbox">
+          <label for="check1">I agree Terms</label>
+         </div>
+         <div class="checkbox-wrapper">
+          <input type="checkbox" id="check2" class="checkbox">
+          <label for="check2">Condiions</label>
+         </div>
+         <div class="content-button-wrapper">
+          <button class="content-button status-button open close">Cancel</button>
+          <button class="content-button status-button x1">Download</button>         </div>
+        </div>
+       </div>
+      </li>
+      <li class="adobe-product">
+       <div class="products">
+        <img style="height: 28px;; width: 28px; margin-right: 0.8rem;" src="https://windows-cdn.softpedia.com/screenshots/ico/Internet-Download-Manager.png">
+        IDM
+       </div>
+       <span class="status">
+        <span class="status-circle green"></span>
+        Win 7/8/10</span>
+        <div class="button-wrapper">
+          <a href="https://mirror2.internetdownloadmanager.com/idman642build3.exe?v=lt&filename=idman642build3.exe"> <button class="content-button status-button">Download</button></a>
+          <div class="pop-up">
+           <div class="pop-up__title">Open
+            <svg class="close" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+             <circle cx="12" cy="12" r="10" />
+             <path d="M15 9l-6 6M9 9l6 6" />
+            </svg>
+           </div>
+           <div class="pop-up__subtitle">Adjust your selections for advanced options as desired before continuing. <a href="#">Learn more</a></div>
+           <div class="checkbox-wrapper">
+            <input type="checkbox" id="check1" class="checkbox">
+            <label for="check1">I agree Terms</label>
+           </div>
+           <div class="checkbox-wrapper">
+            <input type="checkbox" id="check2" class="checkbox">
+            <label for="check2">Condiions</label>
+           </div>
+           <div class="content-button-wrapper">
+            <button class="content-button status-button open close">Cancel</button>
+            <button class="content-button status-button">Download</button>           </div>
+          </div>
+         </div>
+      </li>
+     </ul>
+    </div>
+    <div class="content-section">
+     <div class="content-section-title">popular apps</div>
+     <div class="apps-card">
+      <div class="app-card">
+       <span>
+        <img style="height: 28px;; width: 28px; margin-right: 0.8rem;" src="https://upload.wikimedia.org/wikipedia/commons/6/65/Microsoft_Office_logo_%282013%E2%80%932019%29.png">
+        MS Office 2019
+       </span>
+       <div class="app-card__subtext">productivity app that helps you create, edit, and share on the go</div>
+       <div class="app-card-buttons">
+        <div class="button-wrapper">
+          <a href="https://microsoft-office-2019.en.uptodown.com/windows/download"> <button class="content-button status-button">Download</button></a>
+         </div>
+       </div>
+      </div>
+      <div class="app-card">
+       <span>
+        <img style="height: 28px;; width: 28px; margin-right: 0.8rem;" src="https://visualstudio.microsoft.com/wp-content/uploads/2019/09/vs-code-responsive-01-1.png">
+        VS Code
+       </span>
+       <div class="app-card__subtext">A standalone source code editor that runs on Windows, macOS, and Linux.</div>
+       <div class="app-card-buttons">
+        <div class="button-wrapper">
+          <a href="https://code.visualstudio.com/download#"> <button class="content-button status-button">Download</button></a>
+         </div>
+       </div>
+      </div>
+      <div class="app-card">
+       <span>
+        <img style="height: 28px;; width: 28px; margin-right: 0.8rem;" src="https://www.aztek.co.il/wp-content/uploads/2022/05/IntelliJ_IDEA_Icon.svg_.png">
+        IntelliJ IDEA
+       </span>
+       <div class="app-card__subtext">The IDE that makes development a more productive and enjoyable experience</div>
+       <div class="app-card-buttons">
+        <div class="button-wrapper">
+          <a href="https://www.jetbrains.com/idea/download/download-thanks.html?platform=windowshttps://www.jetbrains.com/idea/download/download-thanks.html?platform=windows"> <button class="content-button status-button">Download</button></a>
+         </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="content-section">
+      <div id="androidapps"class="content-section-title">Android Apps</div>
+      <ul>
+       <li class="adobe-product">
+        <div class="products">          
+         <img style="height: 28px;; width: 28px; margin-right: 0.8rem;" src="images/snaptube.png">
+         Snaptube
+        </div>
+        <span class="status">
+         <span class="status-circle green"></span>
+         Latest</span>
+         <div class="button-wrapper">
+         <a href="https://download.snaptubes.net/Snaptube_20240313.apk"> <button class="content-button status-button">Download</button></a>
+          <div class="pop-up">
+           <div class="pop-up__title">Open
+            <svg class="close" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+             <circle cx="12" cy="12" r="10" />
+             <path d="M15 9l-6 6M9 9l6 6" />
+            </svg>
+           </div>
+           <div class="pop-up__subtitle">Adjust your selections for advanced options as desired before continuing. <a href="#">Learn more</a></div>
+           <div class="checkbox-wrapper">
+            <input type="checkbox" id="check1" class="checkbox">
+            <label for="check1">I agree Terms</label>
+           </div>
+           <div class="checkbox-wrapper">
+            <input type="checkbox" id="check2" class="checkbox">
+            <label for="check2">Condiions</label>
+           </div>
+           <div class="content-button-wrapper">
+            <button class="content-button status-button open close">Cancel</button>
+            <button class="content-button status-button">Download</button>           </div>
+          </div>
+         </div>
+       </li>
+       <li class="adobe-product">
+        <div class="products">
+        <img style="height: 28px;; width: 28px; margin-right: 0.8rem;" src="https://inshot.com/img/nav_icon_inshot.png">
+         inshot
+        </div>
+        <span class="status">
+         <span class="status-circle"></span>
+         Latest</span>
+        <div class="button-wrapper">
+         <a href="https://inshot.com/" target="_blank"> <button class="content-button status-button">Download</button></a>
+         <div class="pop-up">
+          <div class="pop-up__title">Open
+           <svg class="close" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M15 9l-6 6M9 9l6 6" />
+           </svg>
+          </div>
+          <div class="pop-up__subtitle">Adjust your selections for advanced options as desired before continuing. <a href="#">Learn more</a></div>
+          <div class="checkbox-wrapper">
+           <input type="checkbox" id="check1" class="checkbox">
+           <label for="check1">I agree Terms</label>
+          </div>
+          <div class="checkbox-wrapper">
+           <input type="checkbox" id="check2" class="checkbox">
+           <label for="check2">Feedback</label>
+          </div>
+          <div class="content-button-wrapper">
+           <button class="content-button status-button open close">Cancel</button>
+           <button class="content-button status-button">Download</button>          </div>
+         </div>
+        </div>
+       </li>
+       <li class="adobe-product">
+        <div class="products">
+          <img style="height: 28px;; width: 28px; margin-right: 0.8rem;" src="https://kinemaster.com.in/wp-content/uploads/2023/05/Kinemaster-APK.png">
+         Kine Master
+        </div>
+        <span class="status">
+         <span class="status-circle green"></span>
+         Latest</span>
+         <div class="button-wrapper">
+          <a href="https://kinemaster.com/en"> <button class="content-button status-button">Download</button></a>
+          <div class="pop-up">
+           <div class="pop-up__title">Open
+            <svg class="close" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+             <circle cx="12" cy="12" r="10" />
+             <path d="M15 9l-6 6M9 9l6 6" />
+            </svg>
+           </div>
+           <div class="pop-up__subtitle">Adjust your selections for advanced options as desired before continuing. <a href="#">Learn more</a></div>
+           <div class="checkbox-wrapper">
+            <input type="checkbox" id="check1" class="checkbox">
+            <label for="check1">I agree Terms</label>
+           </div>
+           <div class="checkbox-wrapper">
+            <input type="checkbox" id="check2" class="checkbox">
+            <label for="check2">Condiions</label>
+           </div>
+           <div class="content-button-wrapper">
+            <button class="content-button status-button open close">Cancel</button>
+            <button class="content-button status-button">Download</button>           </div>
+          </div>
+         </div>
+       </li>
+       <li class="adobe-product">
+        <div class="products">
+          <img style="height: 28px;; width: 28px; margin-right: 0.8rem;" src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/ba/86/c5/ba86c54d-0a66-94bc-4186-24d008ddc6e0/AppIcon.png/230x0w.webp">
+         Capcut
+        </div>
+        <span class="status">
+         <span class="status-circle green"></span>
+         Latest</span>
+         <div class="button-wrapper">
+         <a href="https://en.aptoide.com/download?app_id=66472187&store_name=aptoide-web&entry_point=appstore_appview_header_desktop_v10" target="_blank">  <button class="content-button status-button">Download</button></a>
+          <div class="pop-up">
+           <div class="pop-up__title">Open
+            <svg class="close" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+             <circle cx="12" cy="12" r="10" />
+             <path d="M15 9l-6 6M9 9l6 6" />
+            </svg>
+           </div>
+           <div class="pop-up__subtitle">Adjust your selections for advanced options as desired before continuing. <a href="#">Learn more</a></div>
+           <div class="checkbox-wrapper">
+            <input type="checkbox" id="check1" class="checkbox">
+            <label for="check1">I agree Terms</label>
+           </div>
+           <div class="checkbox-wrapper">
+            <input type="checkbox" id="check2" class="checkbox">
+            <label for="check2">Condiions</label>
+           </div>
+           <div class="content-button-wrapper">
+            <button class="content-button status-button open close">Cancel</button>
+            <button class="content-button status-button">Download</button>           </div>
+          </div>
+         </div>
+       </li> <li class="adobe-product">
+        <div class="products">
+          <img style="height: 28px;; width: 28px; margin-right: 0.8rem;" src="https://tubemate.tools/images/tubematelogo_24e7b.png">
+         Tubemate
+        </div>
+        <span class="status">
+         <span class="status-circle green"></span>
+         Latest</span>
+         <div class="button-wrapper">
+          <a href="https://tubemate.tools/file/tubemate-3-4-11-1370.apk" target="_blank"> <button class="content-button status-button">Download</button></a>
+          <div class="pop-up">
+           <div class="pop-up__title">Open
+            <svg class="close" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+             <circle cx="12" cy="12" r="10" />
+             <path d="M15 9l-6 6M9 9l6 6" />
+            </svg>
+           </div>
+           <div class="pop-up__subtitle">Adjust your selections for advanced options as desired before continuing. <a href="#">Learn more</a></div>
+           <div class="checkbox-wrapper">
+            <input type="checkbox" id="check1" class="checkbox">
+            <label for="check1">I agree Terms</label>
+           </div>
+           <div class="checkbox-wrapper">
+            <input type="checkbox" id="check2" class="checkbox">
+            <label for="check2">Condiions</label>
+           </div>
+           <div class="content-button-wrapper">
+            <button class="content-button status-button open close">Cancel</button>
+            <button class="content-button status-button">Download</button>           </div>
+          </div>
+         </div>
+       </li>
+       <li class="adobe-product">
+        <div class="products">
+          <img style="height: 28px;; width: 28px; margin-right: 0.8rem;" src="https://www.vidmate-official.com/public/asset/img/logo_2.png">
+         VidMate
+        </div>
+        <span class="status">
+         <span class="status-circle green"></span>
+         Latest</span>
+         <div class="button-wrapper">
+          <a href="https://vidmate.tools/file/vidmate_v5.1904_20240131175526.apk"> <button class="content-button status-button">Download</button></a>
+          <div class="pop-up">
+           <div class="pop-up__title">Open
+            <svg class="close" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+             <circle cx="12" cy="12" r="10" />
+             <path d="M15 9l-6 6M9 9l6 6" />
+            </svg>
+           </div>
+           <div class="pop-up__subtitle">Adjust your selections for advanced options as desired before continuing. <a href="#">Learn more</a></div>
+           <div class="checkbox-wrapper">
+            <input type="checkbox" id="check1" class="checkbox">
+            <label for="check1">I agree Terms</label>
+           </div>
+           <div class="checkbox-wrapper">
+            <input type="checkbox" id="check2" class="checkbox">
+            <label for="check2">Condiions</label>
+           </div>
+           <div class="content-button-wrapper">
+            <button class="content-button status-button open close">Cancel</button>
+            <button class="content-button status-button">Download</button>           </div>
+          </div>
+         </div>
+       </li>
+      </ul>
+     </div>
+<br>
+<br>
+  <div id="tools"></div>
+  <div id="gbtomb" class="tool-card">
+    <span>
+     Computer memory size converter
+    </span>
+    <form>
+      <div >
+       <select class="mb-button" id='input-type'>
+            <option value="1">Bit</option>
+            <option value="2">Byte</option>
+            <option value="3">Kilobyte(KB)</option> 
+            <option value="4">Megabyte(MB)</option> 
+            <option value="5">Gigabyte(GB)</option> 
+            <option value="6">Terabyte</option> 
+       </select>
+       <input class="mb-input" type="number" id="input-value"></input>
+     </div>
+     <div>
+      <select class="mb-button" id='output-type'>
+            <option value="1">Bit</option>
+            <option value="2">Byte</option>
+            <option value="3">Kilobyte(KB)</option> 
+            <option value="4">Megabyte(MB)</option> 
+            <option value="5">Gigabyte(GB)</option> 
+            <option value="6">Terabyte</option> 
+      </select>
+       <output class="mb-output" type="number" id="output-value"><output>
+     </div>
+      <div class="tool-card-buttons"></div>
+       <button type="button" class="content-button status-buttonid" id="coversion-form">Convert</button>
+    </form>  
+  </div>   
+<br>
+<br>
+  <div id="qrcode" class="tool-card">
+    <span>
+      QRcode Generator  
+    </span>
+    <input class="mb-input" type="text" id="userInput" placeholder="Type something..." />
+      <div class="options">
+        <select class="sizeOptions">
+          <option value="100" selected>100 x 100</option>
+          <option value="200">200 x 200</option>
+          <option value="300">300 x 300</option>
+        </select>
+        <input type="color" id="BGColor" class="color-inp" />
+        <input type="color" id="FGColor" class="color-inp" />
+      </div>
+      <div class="box">
+        <button class="content-button status-buttonid" id="submit" disabled>Generate</button>
+        <a href="#" class="content-button status-buttonid" id="download">Download</a>
+      </div>
+     <div class="container"></div>
+  </div>
+  <script src="scripts/qr.js"></script>
+  <br><br>
+  <div class="tool-card" id="pwdgen">
+    <span>
+      Password Generator 
+    </span>
+    <div class="generated-password">
+      <input type="text" placeholder="Generated password here" id="password" disabled>
+      <button id="copy_all">
+        <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none"
+          stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+      </button>  
+    </div>
+    <div class="pass-indicator"></div>
+    <div class="pass-length">
+      <div class="details">
+        <label class="title">Password Length</label>
+        <span></span>
+      </div>
+      <input class="slider" type="range" min="1" max="30" value="15" step="1">
+    </div>
+    <div class="pass-settings">
+      <label style="margin-top:0.5rem">Password Settings</label>
+      <ul class="options">
+        <li class="option">
+          <input type="checkbox" id="lowercase" checked="">
+          <label for="lowercase">Lowercase (a-z)</label>
+        </li>
+        <li class="option">
+          <input type="checkbox" id="uppercase">
+          <label for="uppercase">Uppercase (A-Z)</label>
+        </li>
+        <li class="option">
+          <input type="checkbox" id="numbers">
+          <label for="numbers">Numbers (0-9)</label>
+        </li>
+        <li class="option">
+          <input type="checkbox" id="symbols">
+          <label for="symbols">Symbols (!-$^+)</label>
+        </li>
+        <li class="option">
+          <input type="checkbox" id="exc-duplicate">
+          <label for="exc-duplicate">Exclude Duplicate</label>
+        </li>
+        <li class="option">
+          <input type="checkbox" id="spaces">
+          <label for="spaces">Include Spaces</label>
+        </li>
+      </ul>
+    </div>
+      <button class="generate-btn">Generate Password</button>      
+  </div>
+  <script  src="scripts/pwd.js"></script>
+<br><br>
+<div class="tool-card" id="mper">
+ <span>Mark Percentage Calculator</span>
+  <h3 style="margin-bottom: 0px; color: #4f4f4f;"> Mark Scored: </h3>
+  <input class="mark-input" type="number" id="marknum1" />
+  <br>
+  <h3 style="color: #4f4f4f;">Total Marks:</h3>
+  <input class="mark-input" type="number" id="marknum2" />
+  <h3 style="color: #4f4f4f;">Percentage:</h3>
+ <input class="mark-input" type="text" id="value2" readonly />
+ <br>
+ <button class="mark-btn" onclick="percentage_2()">Calculate</button><br>
+</div>
+<script  src="scripts/mark.js"></script>
+<br>
+<div class="tool-card" id="ytd">
+  <span>Youtube Video Downloader</span>  
+  <input class="yt-input" placeholder="Paste Link Here" id="inlink" type="text"></input>
+  <br>  
+  <button class="generate-btn"  onclick="ytdown()">Download</button>  
+   </div> 
+  <script src="scripts/script.js"></script>
+<link rel="stylesheet" href="css/style.css" />
+<br>
+<br>
+  <div class="tool-card" id="fdb">
+   <h2 style="text-align: center;"> FeedBack</h2>
+   <form id="submit-form" action="">
+    <div>
+      <fieldset class="fb-box-up">
+        <span><label style="margin-top: 0.5rem;" for="name">Name: </label></span>
+        <input class="fb-input" id="name" name="name" placeholder="You good name please?" />
+      </fieldset>
+      <fieldset >
+        <span><label for="message">Message: </label></span>
+        <textarea class="fb-input" id="message" name="message" rows=""
+        placeholder="Tell us what's on your mind..."></textarea>
+      </fieldset>
+      <fieldset >
+        <span><label for="email"><em>Your</em> Email Address:</label></span>
+        <input class="fb-input" id="email" name="email" type="email" value=""
+        required placeholder="emaple@email.com"/>
+      </fieldset>
+      <fieldset>
+        <span><label style="margin-top: 0.5rem;" for="honeypot">Must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label></span>
+        <input class="hb-input" id="honeypot" type="text" name="honeypot" placeholder="Leave empty" value="" />
+      </fieldset>
+      <fieldset class="fb-box-down">
+      <button class="generate-btn">Send</button>   
+      </fieldset>
+    </div>
+  </form>
+  </div>
+  <script>
+    $ ("#submit-form").submit((e)=>{
+    e.preventDefault()
+    $.ajax({
+    url:"https://script.google.com/macros/s/AKfycbzZd5xRizHXFfEcuoQxZuFJM8YILDRXow6Y_pKiKgyJrKQqoChBqtIgym9fyNqn8e-H/exec", data:$("#submit-form").serialize(),
+    method:"post",
+    success: function (response) {
+    alert("Feedback sent successfully")
+    window.location.reload()
+    },
+    error: function (err){
+    alert("Something Error")
+    }
+    })
+  })
+  </script>
+   </div><!--closing of page -->
+  </div>
+ </div>
+ <div class="overlay-app"></div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="scripts/script.js"></script>
+</body>
+</html>

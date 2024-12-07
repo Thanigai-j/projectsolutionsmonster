@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Solution's Monster Upload</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet'
+    href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+
+  <span>
+    <h1 class="uphd">Upload session</h1>
+  </span>
+  <!-- Form Module-->
+
+
+  <img src="images/Solution's Monster.png">
+
+
+  <form>
+    <input id="appname" class="mb-input" type="text" placeholder="App Name" />
+    <input id="desc" class="mb-input" type="text" placeholder="Description" />
+    <input id="down" class="mb-input" type="text" placeholder="Download Link" />
+  </form>
+  <button class="upld-btn">Upload</button>
+
+
+
+  <!-- partial -->
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='https://codepen.io/andytran/pen/vLmRVp.js'></script>
+  <script src="scripts/logscript.js"></script>
+  <script src="./scripts/script.js"></script>
+  <!-- partial -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    import { getDatabase, ref, get, set, child, update, remove } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+
+    const App = document.querySelector("#appname");
+    const desc = document.querySelector("#desc");
+    const download = document.querySelector("#down");
+
+    const uploadsub = document.querySelector(".upld-btn");
+    uploadsub.addEventListener("click", () => {
+      console.log("Work");
+      set(ref(db, "TheUrl/" + App.value), {
+        Description: desc.value,
+        Download: download.value,
+      }).then(() => {
+        const remove = document.querySelector("form");
+        remove.reset();
+        alert("Uploaded!");
+      //  upt(App.value, download.value);
+        const homelink = "./index.html";
+        window.open(homelink, "_self");
+      }).catch((error) => {
+        alert("Unsuccess" + error);
+      })
+
+
+
+    })
+
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAJJFkGJ5w2hvnIDgK06JvSAXC_eHK8mHg",
+      authDomain: "solution-monster-14a3c.firebaseapp.com",
+      projectId: "solution-monster-14a3c",
+      storageBucket: "solution-monster-14a3c.appspot.com",
+      messagingSenderId: "971919074422",
+      appId: "1:971919074422:web:aa5be0d20dc42355642b57"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase();
+
+
+
+  </script>
+  <script type="module" src="./scripts/script.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</body>
+
+</html>
+
+
+
+
+<!--wireless session and transport protocal-->
