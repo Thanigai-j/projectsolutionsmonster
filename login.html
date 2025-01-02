@@ -90,7 +90,7 @@
         const remove = document.querySelector("#regf");
         remove.reset();
         alert("Registered successfully!");
-        const homelink = "./index.html";
+        const homelink = "./index.html#desktop";
         window.open(homelink, "_top");
       }).catch((error) => {
         alert("Unsuccess" + error);
@@ -105,7 +105,7 @@
         if (snapshot.exists()) {
           if (usrpass.value == snapshot.val().passWord) {
             alert("login succes");
-            const homelink = "./index.html";
+            const homelink = "./index.html#desktop";
             window.open(homelink, "_self");
 
           } else {
